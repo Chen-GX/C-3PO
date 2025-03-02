@@ -1,0 +1,64 @@
+checkpoint_dir: ./output_dir/models/Qwen2-1.5B/ppo_106_344_ckpt160
+model_base_name: ppo_106_344_ckpt160
+tp: 1
+port: 20000
+proxy_concurrency: 256
+temperature: 0.6
+top_k: -1
+top_p: 1.0
+max_tokens: 2048
+model_type: proxy
+gpt_proxy_concurrency: 8
+openai_api_key: None
+proxy_url: None
+proxy_model_name: None
+force_decision: False
+force_action: Planning  # "Planning", "Retrieval" No Retrieval
+
+## params of search
+n_decision_sample: 1
+n_generate_sample: 1
+n_plan_sample: 1
+n_answer_sample: 1
+max_iter: 20
+search_config: ./config/search_config.yaml
+few_shot: False
+few_num: 2
+dict_few_num: 1
+decide_prompt: "identity"
+max_depth: 13
+max_documents: 10
+answer_eval: "none"
+retriever_type: "search_engine"  # search_engine dense
+retrieve_server_url: http://10.32.25.199:35004/search
+musique_server_url: http://10.32.25.199:35002/search
+retrieve_top_k: 10
+max_query_length: 100
+search_engine_url: your url
+search_scene: your scene
+search_engine_cache: True
+search_engine_cache_file: ./cache_search
+
+# params of llm
+llm_server_url: http://10.32.4.13:10080/v1
+llm_api_key: EMPTY
+llm_name: qwen2-72b-instruct
+llm_server_type: online
+llm_query_few_shot: True
+wo_llm: False
+online_concurrency: 64
+answer_temperature: 0.
+plan_temperature: 0.3
+answer_top_p: 1.
+plan_top_p: 1.
+
+
+# other params
+only_eval_answer: False
+test: True
+backend: sglang
+use_planning_cache: False
+cache_dir: "none"
+data_path: ./freshqa/FreshQA_v12182024.jsonl
+dataname: 2WikiMultiHopQA  # for few-shot
+output_dir: ./output_dir/run/ood/freshqa_12182024

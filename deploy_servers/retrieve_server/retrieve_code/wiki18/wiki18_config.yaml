@@ -1,0 +1,19 @@
+corpus_name: wiki18
+retrieve_model: ./model_cache/contriever-msmarco
+corpus: ./C-3PO/deploy_servers/retrieve_server/wiki18/psgs_w100.tsv
+corpus_embeddings: ./C-3PO/deploy_servers/retrieve_server/wikipedia_embeddings
+n_subquantizers: 32
+n_bits: 8
+nlist: 30000
+save_or_load_index: True
+indexing_batch_size: 5000000  # 所有数据都读进去来
+validation_workers: 32
+per_gpu_batch_size: 512
+question_maxlength: 256
+projection_size: 768  # embedding 维度
+lowercase: True
+normalize_text: True
+no_fp16: False
+use_gpu: True
+index_type: FlatIP
+index_batch_size: 4096

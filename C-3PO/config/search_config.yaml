@@ -1,0 +1,69 @@
+role:
+  MAKE_DECISION:
+    name: "MAKE_DECISION"
+    actions:
+      PLANNING_ACTION: "Planning"          # -> planning_lst
+      RETRIEVAL_ACTION: "Retrieval"        # -> retrieval_lst
+      NO_RETRIEVAL_ACTION: "No Retrieval"  # -> decide_prompt_lst
+
+  LLM_PLANNING:
+    name: "LLM_PLANNING"
+    actions:
+      LLM_PLANNING_ACTION: "llm_planning"    # -> after_planning_lst
+
+  DECIDE_NEXT_STEP:
+    name: "DECIDE_NEXT_STEP"
+    actions:
+      RETRIEVAL_ACTION: "Retrieval"        # -> retrieval_lst
+      LLM_ACTION: "LLM"                    # -> decide_prompt_lst
+  
+  RETRIEVE_AND_FILTER:
+    name: "RETRIEVE_AND_FILTER"
+    actions:
+      RETRIEVE_AND_FILTER_ACTION: "retrieve_and_filter"                # -> decide_next_step_lst
+      DIRECT_RETRIEVE_AND_FILTER_ACTION: "direct_retrieve_and_filter"  # -> decide_prompt_lst
+
+
+  DECIDE_PROMPT:
+    name: "DECIDE_PROMPT"
+    actions:
+      DECIDE_PROMPT_ACTION: "decide_prompt"  # -> decide_prompt_lst
+  
+  QUERY_LLM:
+    name: "QUERY_LLM"
+    actions:
+      QUERY_LLM_ACTION: "query_llm"          # -> query_llm_lst
+
+  # EXTRACT_ANSWER:
+  #   name: "EXTRACT_ANSWER"
+  #   actions:
+  #     QUERY_LLM_ACTION: "query_llm"          # -> query_llm_lst
+  
+
+few_shot_file_name:
+  - decision          # MAKE_DECISION
+  - planning          # LLM_PLANNING
+  - decide_next_step  # DECIDE_NEXT_STEP
+  - filter            # RETRIEVE_AND_FILTER
+  - extract_answer
+  - answer
+
+test_few_shot_file_name:
+  - planning
+  - extract_answer
+  - answer
+
+USE_PUBLIC:
+  planning:
+    - NaturalQuestions
+    - TriviaQA
+  decide_next_step:
+    - NaturalQuestions
+    - TriviaQA
+  answer:
+    - 2WikiMultiHopQA
+    - hotpotqa
+    - Musique
+    - NaturalQuestions
+    - PopQA
+    - TriviaQA
