@@ -14,6 +14,7 @@ This repo contains a proxy-centric alignment framework (C-3PO) that bridges the 
 </div>
 
 ## :boom: News
+- **[2025.05.01]** Our C-3PO is accepted by ICML 2025.
 - **[2025.03.02]** Release our Code.
 - **[2025.02.12]** Release our [Demo](https://www.modelscope.cn/studios/Decaderan/C-3PO) on the ModelScope.
 - **[2025.02.10]** Release our paper [C-3PO](https://arxiv.org/abs/2502.06205) on the Arxiv.
